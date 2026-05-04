@@ -112,7 +112,7 @@ New Term: phys.fluence.density
 Action: Addition
 Prefix: Q
 Description: Spectral fluence or particles per unit area per energy 
-Additional Property:(dimensionality: [M^-1.L^-4.T^2])
+Additional Property:(dimensionality: [M^-1 L^-4 T^2])
 
 Used_in: ?????? 
 Rationale: 
