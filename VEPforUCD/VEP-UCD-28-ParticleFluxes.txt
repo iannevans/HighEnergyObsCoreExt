@@ -32,7 +32,7 @@ Description: Energy flux, heat flux or irradiance
 Additional Property:(dimensionality: [M.T^-3])
 Rationale: Distinguish between flux of particles and flux of energy. 
 
-Used_in:  %todo provide an example site or file
+Used_in: Chandra Source Catalog (https://cxc.cfa.harvard.edu/csc/) aperture photometry probability density function data product include counts flux, photon (particle) flux, and energy fluxes.
 Discussion: 
 Decision:
 -----------------------
