@@ -305,14 +305,14 @@ AND (obs_collection = 'CTAO-DR1')
 SELECT * FROM ivoa.obscore
 NATURAL JOIN ivoa.obscore_hea
 WHERE
-(CONTAINS(POINT(s_ra, s_dec), CIRCLE, 98.24, 5.81, 5.0) = 1)
+(CONTAINS(POINT(s_ra, s_dec), CIRCLE(98.24, 5.81, 5.0)) = 1)
 AND (dataproduct_type IN ('event-bundle', 'event-list', 'response-function'))
 AND (obs_collection = 'ANTARES-2017-PS')
 \end{verbatim}
 
 \subsubsection{Use Case --- Retrieve the instrument response functions for a combined KM3NeT \& CTA sensitivity study for a point source.}
 
-{\em To study the combined future sensitivity for a source that is expected to emit gamma rays and neutrinos, retrieve general IRFs from both instruments to perform a sensitivity study for a source like Vela X as in \textbf{arXiv:2309.03007}, considering only track-like events due to their better angular resolution.}
+{\em To study the combined future sensitivity for a source that is expected to emit gamma rays and neutrinos, retrieve general IRFs from both instruments to perform a sensitivity study for a source like Vela X as in \textbf{\hyperref[https://doi.org/10.1140/epjc/s10052-023-12279-z]{Eur. Phys. J. C. 84, 112 (2024)}}, considering only track-like events due to their better angular resolution.}
 
 \medskip
 \noindent Find all IRF datasets satisfying:
@@ -328,7 +328,7 @@ AND (obs_collection = 'ANTARES-2017-PS')
 SELECT * FROM ivoa.obscore
 NATURAL JOIN ivoa.obscore_hea
 WHERE
-(CONTAINS(POINT(s_ra, s_dec), CIRCLE, 0.8, -45.19, 5.0) = 1)
+(CONTAINS(POINT(s_ra, s_dec), CIRCLE(0.8, -45.19, 5.0)) = 1)
 AND (dataproduct_type = 'response-function'))
 AND (instrument_name = '%ARCA%')
 AND (t_min >= 61406)
@@ -366,7 +366,7 @@ AND (analysis_mode = 'diffuse')
 \noindent Find all neutrino datasets satisfying:
 \begin{enumerate}[(i)]
   \item dataproduct\_type = ``response-function'', 
-  \item messenger contains ``pdgid-16'' or ``pdgid-18'',
+  \item messenger contains ``pdgid-16'' or ``pdgid+16'',
   \item obs\_mode = ``wide-array'',
   \item analysis\_mode = ``pointsource''.
 \end{enumerate}
@@ -376,7 +376,7 @@ SELECT * FROM ivoa.obscore
 NATURAL JOIN ivoa.obscore_hea
 WHERE
 (dataproduct_type = 'response-function')
-AND (messenger = '%pdgid-16%' OR messenger = '%pdgid-18%')
+AND (messenger = '%pdgid-16%' OR messenger = '%pdgid+16%')
 AND (obs_mode LIKE '%wide-array%')
 AND (analysis_mode LIKE '%pointsource%')
 \end{verbatim}
